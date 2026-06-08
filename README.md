@@ -9,7 +9,7 @@ A sleek, responsive, and high-performance single-page portfolio template built u
 
 ## 🚀 Live Demo
 
-👉 [Project Live](https://abhinavbyteportfolio.vercel.app/)
+👉 [portfolio Live](https://abhinavbyteportfolio.vercel.app/)
 
 ---
 

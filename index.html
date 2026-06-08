@@ -77,6 +77,32 @@
             color: var(--foreground);
             font-family: var(--font-sans);
             transition: background-color 0.3s ease, color 0.3s ease;
+            cursor: none;
+        }
+
+        #custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            background: rgba(249, 115, 22, 0.1);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: width 0.18s ease, height 0.18s ease, transform 0.08s ease, border-color 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+            z-index: 9999;
+            will-change: transform;
+            box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.2);
+        }
+
+        #custom-cursor.hovered {
+            width: 46px;
+            height: 46px;
+            background: rgba(249, 115, 22, 0.16);
+            border-color: rgba(249, 115, 22, 0.95);
+            /* box-shadow: 0 0 0 5px rgba(249, 115, 22, 0.09); */
         }
 
         .glass {
@@ -146,6 +172,7 @@
     </style>
 </head>
 <body class="bg-[var(--background)] text-[var(--foreground)] antialiased selection:bg-[var(--foreground)] selection:text-[var(--background)]">
+    <div id="custom-cursor" class="custom-cursor"></div>
 
     <!-- Glowing Background Ambient Elements -->
     <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
@@ -309,27 +336,27 @@
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-            <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:bg-[rgba(249,115,22,0.1)] hover:-translate-y-2 cursor-pointer group">
+            <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:bg-[rgba(249,115,22,0.1)] hover:-translate-y-2">
                 <i class="fa-brands fa-html5 text-4xl text-[var(--foreground)] group-hover:text-[var(--primary)] group-hover:scale-110 transition-all"></i>
                 <span class="font-medium text-sm text-[var(--foreground)]">HTML5</span>
             </div>
-            <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:bg-[rgba(249,115,22,0.1)] hover:-translate-y-2 cursor-pointer group">
+            <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:bg-[rgba(249,115,22,0.1)] hover:-translate-y-2">
                 <i class="fa-brands fa-css3-alt text-4xl text-[var(--foreground)] group-hover:text-[var(--primary)] group-hover:scale-110 transition-all"></i>
                 <span class="font-medium text-sm text-[var(--foreground)]">CSS3 / Tailwind</span>
             </div>
-            <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:bg-[rgba(249,115,22,0.1)] hover:-translate-y-2 cursor-pointer group">
+            <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:bg-[rgba(249,115,22,0.1)] hover:-translate-y-2">
                 <i class="fa-brands fa-js text-4xl text-[var(--foreground)] group-hover:text-[var(--primary)] group-hover:scale-110 transition-all"></i>
                 <span class="font-medium text-sm text-[var(--foreground)]">JavaScript</span>
             </div>
-            <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:bg-[rgba(249,115,22,0.1)] hover:-translate-y-2 cursor-pointer group">
+            <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:bg-[rgba(249,115,22,0.1)] hover:-translate-y-2">
                 <i class="fa-brands fa-react text-4xl text-[var(--foreground)] group-hover:text-[var(--primary)] group-hover:scale-110 transition-all"></i>
                 <span class="font-medium text-sm text-[var(--foreground)]">React.js</span>
             </div>
-            <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:bg-[rgba(249,115,22,0.1)] hover:-translate-y-2 cursor-pointer group">
+            <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:bg-[rgba(249,115,22,0.1)] hover:-translate-y-2">
                 <i class="fa-brands fa-figma text-4xl text-[var(--foreground)] group-hover:text-[var(--primary)] group-hover:scale-110 transition-all"></i>
                 <span class="font-medium text-sm text-[var(--foreground)]">Figma</span>
             </div>
-            <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:bg-[rgba(249,115,22,0.1)] hover:-translate-y-2 cursor-pointer group">
+            <div class="glass p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:bg-[rgba(249,115,22,0.1)] hover:-translate-y-2">
                 <i class="fa-brands fa-git-alt text-4xl text-[var(--foreground)] group-hover:text-[var(--primary)] group-hover:scale-110 transition-all"></i>
                 <span class="font-medium text-sm text-[var(--foreground)]">Git & Versioning</span>
             </div>
@@ -349,7 +376,7 @@
                     <input type="hidden" name="access_key" value="b214af07-59f3-4c60-acbd-bec60e0a2246">
                     
                     <!-- Optional: This redirects the client back to your website home after they submit -->
-                    <input type="hidden" name="redirect" value="https://yourwebsite.com">
+                    <input type="hidden" name="redirect" value="https://abhinavbyteportfolio.vercel.app/">
 
                     <input type="text" name="name" placeholder="Your Name" required class="w-full px-5 py-3 rounded-xl bg-[var(--input)] border border-theme focus:outline-none focus:border-[var(--primary)] transition-colors text-sm text-[var(--foreground)]">
                     <input type="email" name="email" placeholder="Your Email" required class="w-full px-5 py-3 rounded-xl bg-[var(--input)] border border-theme focus:outline-none focus:border-[var(--primary)] transition-colors text-sm text-[var(--foreground)]">
@@ -429,6 +456,21 @@
                 header.classList.remove('sticky-active');
             }
         });
+
+        const customCursor = document.getElementById('custom-cursor');
+        const hoverableSelectors = 'a, button, input, textarea, select, label, .cursor-hover';
+
+        document.addEventListener('mousemove', (event) => {
+            customCursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px) translate(-50%, -50%)`;
+        });
+
+        document.querySelectorAll(hoverableSelectors).forEach((element) => {
+            element.addEventListener('mouseenter', () => customCursor.classList.add('hovered'));
+            element.addEventListener('mouseleave', () => customCursor.classList.remove('hovered'));
+        });
+
+        document.addEventListener('mousedown', () => customCursor.classList.add('hovered'));
+        document.addEventListener('mouseup', () => customCursor.classList.remove('hovered'));
 
         // Contact Form Submission Handling
         const contactForm = document.getElementById('contact-form');
